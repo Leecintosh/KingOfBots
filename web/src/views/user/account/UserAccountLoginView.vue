@@ -44,7 +44,6 @@ export default {
                     store.dispatch("getInfo", {
                         success() {
                             router.push({ name: 'home' });
-                            console.log(store.state.user);
                         },
                         error() {
                             error_message.value = 'Incorrect username or password';

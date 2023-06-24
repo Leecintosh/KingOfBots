@@ -1,10 +1,8 @@
 package com.kob.backend.service.impl.user.account;
 
 import com.kob.backend.pojo.User;
-import com.kob.backend.service.impl.utils.UserDetailsImpl;
-import com.kob.backend.service.user.InfoService;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.kob.backend.service.impl.utils.GetUserUtil;
+import com.kob.backend.service.user.account.InfoService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,10 +13,7 @@ public class InfoServiceImpl implements InfoService {
 
     @Override
     public Map<String, String> getInfo() {
-        UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-
-        UserDetailsImpl loginUser = (UserDetailsImpl) token.getPrincipal();
-        User user = loginUser.getUser();
+        User user = GetUserUtil.getUserWithToken();
 
         Map<String, String> map = new HashMap<>();
         map.put("error_message", "success");
