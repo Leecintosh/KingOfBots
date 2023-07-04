@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import ModuleUser from './user'
 import createPersistedState from "vuex-persistedstate";
+import ModulePk from './pk'
 
 export default createStore({
   state: {
@@ -13,6 +14,7 @@ export default createStore({
   },
   modules: {
     user: ModuleUser,
+    pk: ModulePk,
   },
   plugins: [createPersistedState({
     // localStorage: store data in localStorage, lose data when close browser

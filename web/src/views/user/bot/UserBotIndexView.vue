@@ -8,10 +8,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-9" style="margin-top: 20px;">
-                <div class="card">
+            <div class="col-9">
+                <div class="card" style="margin-top: 20px;">
                     <div class="card-header">
-                        <span style="font-size: 130%;">My Bot</span>
+                        <span style="font-size: 130%">My Bot</span>
                         <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#add-bot-btn">
                             Create Bot
                         </button>
@@ -21,7 +21,7 @@
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5">Create Bot</h1>
+                                        <h5 class="modal-title fs-5">Create Bot</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -35,10 +35,13 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="add-bot-code" class="form-label">Code</label>
-                                            <VAceEditor v-model:value="botadd.content"
-                                                @init="editorInit" lang="c_cpp"
-                                                :theme="aceConfig.theme" style="height: 300px"
-                                                :options="aceConfig.options" class="ace-editor" />
+                                            <VAceEditor
+                                                v-model:value="botadd.content"
+                                                @init="editorInit"
+                                                lang="java"
+                                                :theme="aceConfig.theme"
+                                                style="height: 300px"
+                                                :options="aceConfig.options"/>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -50,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card_body">
+                    <div class="card-body">
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
@@ -71,7 +74,7 @@
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5">Create Bot</h1>
+                                                    <h5 class="modal-title fs-5">Create Bot</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
@@ -85,10 +88,13 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="add-bot-code" class="form-label">Code</label>
-                                                        <VAceEditor v-model:value="bot.content"
-                                                            @init="editorInit" lang="c_cpp"
-                                                            :theme="aceConfig.theme" style="height: 300px"
-                                                            :options="aceConfig.options" class="ace-editor" />
+                                                        <VAceEditor
+                                                            v-model:value="bot.content"
+                                                            @init="editorInit"
+                                                            lang="java"
+                                                            :theme="aceConfig.theme"
+                                                            style="height: 300px"
+                                                            :options="aceConfig.options"/>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -111,10 +117,10 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
-import $ from 'jquery';
-import { useStore } from 'vuex';
-import { Modal } from 'bootstrap/dist/js/bootstrap';
+import { ref, reactive } from 'vue'
+import $ from 'jquery'
+import { useStore } from 'vuex'
+import { Modal } from 'bootstrap/dist/js/bootstrap'
 import { VAceEditor } from 'vue3-ace-editor';
 import "ace-builds/webpack-resolver";
 import 'ace-builds/src-noconflict/mode-json';
@@ -174,7 +180,7 @@ export default {
                 enableLiveAutocompletion: true,
                 tabSize: 4,
                 showPrintMargin: false,
-                fontSize: 16,
+                fontSize: 12,
             }
         });
 
@@ -186,7 +192,7 @@ export default {
             description: "",
             content: "",
             error_message: "",
-        })
+        });
         
         const refresh_bots = () => {
             $.ajax({
@@ -299,7 +305,7 @@ export default {
             editorInit,
             aceConfig,
         }
-    },
+    }
 }
 </script>
 
