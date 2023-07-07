@@ -55,10 +55,12 @@ export default {
                     console.log(data);
                     const game = store.state.pk.game_object;
                     const [snake0, snake1] = game.snakes;
-
-                    if (data.loser === "all" || data.loser === "A") {
+                    if (data.loser === "all") {
                         snake0.status = "die";
-                    } else if (data.loser === "all" || data.loser === "B") {
+                        snake1.status = "die";
+                    } else if (data.loser === "A") {
+                        snake0.status = "die";
+                    } else if (data.loser === "B") {
                         snake1.status = "die";
                     }
                     store.commit("updateLoser", data.loser);

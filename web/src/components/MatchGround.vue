@@ -1,5 +1,5 @@
 <template>
-    <div class="matchground">
+    <div class="match-ground">
         <div class="row">
             <div class="col-6">
                 <div class="user-photo">
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style scoped>
-div.matchground {
+div.match-ground {
     width: 60vw;
     height: 70vh;
     margin: 40px auto;
